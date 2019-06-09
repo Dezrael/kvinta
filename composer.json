@@ -1,0 +1,21 @@
+{
+    "name": "kvinta/project",
+    "require-dev": {
+        "phpunit/phpunit": "^8.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Suvorov",
+            "email": "suvorovis@yandex.ru"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "kvinta\\": "src/"
+        }
+    }
+}

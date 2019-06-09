@@ -1,14 +1,18 @@
 <?php
 
-class Config{
+namespace kvinta\lib;
 
+class Config
+{
     protected static $settings = array();
 
-    public static function get($key){
+    public static function get($key)
+    {
         return isset(self::$settings[$key]) ? self::$settings[$key] : null;
     }
 
-    public static function set($key, $value){
+    public static function set($key, $value)
+    {
         self::$settings[$key] = $value;
     }
 }
