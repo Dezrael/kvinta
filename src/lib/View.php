@@ -51,6 +51,8 @@ class View
         $this->data['message'] = Session::flash();
         $this->data['controller'] = App::getRouter()->getController();
         $this->data['lang'] = Lang::getData();
+        $this->data['role'] = Session::get('role');
+        $this->data['login'] = Session::get('login');
 
         return $twig->render($this->path, $this->data);
     }

@@ -2,31 +2,30 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><?=Config::get('site_name')?></title>
+    <title>{{ sitename }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="../js/admin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="<?=App::getRoot()?>/admin/"><?=Config::get('site_name')?>
-        <?=Session::get('login') ? ' - ' . (Session::get('login') . ' (' . Session::get('role') . ')') : ''?></a>
+    <a class="navbar-brand" href="{{ root }}/admin/">{{ sitename }} {{ login ? ' - ' ~ login ~ ' (' ~ role ~ ')' }}</a>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <?php if(Session::get('role') == 'admin') { ?>
+            {% if role == 'admin' %}
             <li class="nav-item">
-                <a class="nav-link<?=(App::getRouter()->getController() == 'pages' ? ' active' : '')?>"
-                   href="<?=App::getRoot()?>/admin/pages"><?=__('Pages')?></a>
+                <a class="nav-link{{ controller == 'contacts' ? ' active' : ''}}"
+                   href="{{ root }}/admin/contacts">{{ lang.ContactUs }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link<?=(App::getRouter()->getController() == 'contacts' ? ' active' : '')?>"
-                   href="<?=App::getRoot()?>/admin/contacts"><?=__('ContactUs')?></a>
+                <a class="nav-link" href="{{ root }}/admin/users/logout">{{ lang.Logout }}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=App::getRoot()?>/admin/users/logout"><?=__('Logout')?></a>
-            </li>
-            <?php } ?>
+            {% endif %}
         </ul>
     </div>
 </nav>
@@ -35,20 +34,16 @@
 
     <div class="starter-template">
 
-        <?php if(Session::hasFlash()){ ?>
+        {% if message %}
         <div class="alert alert-info" role="alert">
-            <?php Session::flash(); ?>
+            {{ message }}
         </div>
-        <?php }?>
+        {% endif %}
 
-        <?=$data['content']?>
+        {{ content|raw }}
 
     </div>
 
 </main>
-<script src="../js/admin.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>

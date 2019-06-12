@@ -1,7 +1,7 @@
-<h3><?=__('ContactUs')?>:</h3>
+<h3>{{ lang.ContactUs }}:</h3>
 <form action="" method="post">
-    <input type="text" class="form-control" name="name" placeholder="<?=__('YourName')?>" required/>
-    <input type="email" class="form-control" name="email" placeholder="<?=__('YourEmail')?>" required/>
-    <textarea name="message" class="form-control" placeholder="<?=__('YourMessage')?>" required></textarea>
-    <input type="submit" class="btn btn-lg btn-primary btn-block" value="<?=__('Send')?>"/>
+    <input type="text" class="form-control" name="name" placeholder="{{ lang.YourName }}" required/>
+    <input type="email" class="form-control" name="email" placeholder="{{ lang.YourEmail }}" required/>
+    <textarea name="message" class="form-control" placeholder="{{ lang.YourMessage }}" required></textarea>
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="{{ lang.Send }}"/>
 </form>
