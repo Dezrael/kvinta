@@ -1,3 +1,6 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
 <h3>{{ lang.Authorization }}</h3><br/>
 <form method="post" action="">
     <div class="form-group">
@@ -10,3 +13,4 @@
     </div>
     <input type="submit" class="btn btn-success" value="{{ lang.Send }}"/>
 </form>
+{% endblock %}

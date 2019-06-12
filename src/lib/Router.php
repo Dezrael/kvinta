@@ -5,6 +5,7 @@ namespace kvinta\lib;
 class Router
 {
     protected $uri;
+    protected $uriWithoutLang;
     protected $controller;
     protected $action;
     protected $params;
@@ -18,6 +19,14 @@ class Router
     public function getUri()
     {
         return $this->uri;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUriWithoutLang()
+    {
+        return $this->uriWithoutLang;
     }
 
     /**
@@ -75,7 +84,7 @@ class Router
         $this->route = Config::get('default_route');
         $routes = Config::get('routes');
         $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : '';
-        $this->language = $_COOKIE['lang'] ?? Config::get('default_language');
+        $this->language = Config::get('default_language');
         $this->controller = Config::get('default_controller');
         $this->action = Config::get('default_action');
 
@@ -89,6 +98,8 @@ class Router
             $this->language = strtolower(current($path_parts));
             array_shift($path_parts);
         }
+
+        $this->uriWithoutLang = substr($this->uri, 3);
 
         if (in_array(strtolower(current($path_parts)), array_keys($routes))) {
             $this->route = strtolower(current($path_parts));

@@ -13,4 +13,5 @@ return [
     'Authorization' => 'Вход в систему',
     'Messages' => 'Сообщения',
     'Logout' => 'Выход',
+    'Language' => 'Язык',
 ];
