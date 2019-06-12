@@ -3,8 +3,12 @@
 return [
     'ContactUs' => 'Обратная связь',
     'YourName' => 'Ваше имя',
-    'YourEmail' => 'Ваш email',
+    'YourEmail' => 'Ваш e-mail',
     'YourMessage' => 'Ваше сообщение',
+    'Name' => 'Имя',
+    'Email' => 'E-mail',
+    'Message' => 'Сообщение',
+    'SendMessage' => 'Отправить сообщение',
     'Send' => 'Отправить',
     'Pages' => 'Страницы',
     'MessageSendSuccessfully' => 'Ваше сообщение было успешно отправлено',

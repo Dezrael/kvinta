@@ -41,6 +41,7 @@ class View
         $this->data['role'] = Session::get('role');
         $this->data['login'] = Session::get('login');
         $this->data['languages'] = Config::get('languages');
+        $this->data['language'] = App::getRouter()->getLanguage();
         $this->data['uri'] = App::getRouter()->getUri();
         $this->data['uriWithoutLang'] = App::getRouter()->getUriWithoutLang();
 

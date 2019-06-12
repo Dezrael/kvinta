@@ -10,7 +10,7 @@ Config::set('routes', [
 ]);
 Config::set('default_route', 'default');
 Config::set('default_language', 'ru');
-Config::set('default_controller', 'contacts');
+Config::set('default_controller', 'index');
 Config::set('default_action', 'index');
 
 Config::set('db.host', 'host');
