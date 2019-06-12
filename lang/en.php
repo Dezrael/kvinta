@@ -3,8 +3,12 @@
 return [
     'ContactUs' => 'Contact us',
     'YourName' => 'Your name',
-    'YourEmail' => 'Your email',
+    'YourEmail' => 'Your e-mail',
     'YourMessage' => 'Your message',
+    'Name' => 'Name',
+    'Email' => 'E-mail',
+    'Message' => 'Message',
+    'SendMessage' => 'Send message',
     'Send' => 'Send',
     'Pages' => 'Pages',
     'MessageSendSuccessfully' => 'Your message was send successfully',

@@ -1,11 +1,35 @@
 {% extends 'default.twig' %}
 
+{% block header %}
+    {{ lang.ContactUs }}
+{% endblock %}
+
 {% block content %}
-<h3>{{ lang.ContactUs }}:</h3>
-<form action="" method="post">
-    <input type="text" class="form-control" name="name" placeholder="{{ lang.YourName }}" required/>
-    <input type="email" class="form-control" name="email" placeholder="{{ lang.YourEmail }}" required/>
-    <textarea name="message" class="form-control" placeholder="{{ lang.YourMessage }}" required></textarea>
-    <input type="submit" class="btn btn-lg btn-primary btn-block" value="{{ lang.Send }}"/>
-</form>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">{{ lang.SendMessage }}</h3>
+    </div>
+    <!-- /.box-header -->
+    <form action="" method="post">
+        <div class="box-body">
+            <div class="form-group">
+                <label>{{ lang.Name }}</label>
+                <input type="text" class="form-control" name="name" placeholder="{{ lang.YourName }}" required/>
+            </div>
+            <div class="form-group">
+                <label>{{ lang.Email }}</label>
+                <input type="email" class="form-control" name="email" placeholder="{{ lang.YourEmail }}" required/>
+            </div>
+            <div class="form-group">
+                <label>{{ lang.Message }}</label>
+                <textarea name="message" class="form-control" rows="3" placeholder="{{ lang.YourMessage }}" required></textarea>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">{{ lang.Send }}</button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+</div>
 {% endblock %}
