@@ -24,9 +24,6 @@ class View
         if (!$path) {
             $path = self::getDefaultViewPath();
         }
-//        if (!file_exists($path)) {
-//            throw new \Exception('Template file is not found in path: ' . $path);
-//        }
         $this->path = $path;
         $this->data = $data;
     }
@@ -36,16 +33,6 @@ class View
         $loader = new \Twig\Loader\FilesystemLoader(VIEWS_PATH);
         $twig = new \Twig\Environment($loader, $this->data);
 
-//        $data = $this->data;
-//
-//        ob_start();
-//        include $this->path;
-//        $content = ob_get_clean();
-
-//        return $content;
-
-//        var_dump($this->path);die();
-
         $this->data['sitename'] = Config::get('site_name');
         $this->data['root'] = App::getRoot();
         $this->data['message'] = Session::flash();
@@ -53,6 +40,9 @@ class View
         $this->data['lang'] = Lang::getData();
         $this->data['role'] = Session::get('role');
         $this->data['login'] = Session::get('login');
+        $this->data['languages'] = Config::get('languages');
+        $this->data['uri'] = App::getRouter()->getUri();
+        $this->data['uriWithoutLang'] = App::getRouter()->getUriWithoutLang();
 
         return $twig->render($this->path, $this->data);
     }

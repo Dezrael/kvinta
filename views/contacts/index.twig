@@ -1,3 +1,6 @@
+{% extends 'default.twig' %}
+
+{% block content %}
 <h3>{{ lang.ContactUs }}:</h3>
 <form action="" method="post">
     <input type="text" class="form-control" name="name" placeholder="{{ lang.YourName }}" required/>
@@ -5,3 +8,4 @@
     <textarea name="message" class="form-control" placeholder="{{ lang.YourMessage }}" required></textarea>
     <input type="submit" class="btn btn-lg btn-primary btn-block" value="{{ lang.Send }}"/>
 </form>
+{% endblock %}

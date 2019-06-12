@@ -13,4 +13,5 @@ return [
     'Authorization' => 'Authorization',
     'Messages' => 'Messages',
     'Logout' => 'Logout',
+    'Language' => 'Language',
 ];
