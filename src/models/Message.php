@@ -1,9 +1,14 @@
 <?php
 
-class Message extends Model{
+namespace kvinta\models;
 
-    public function save($data, $id=null){
-        if(!isset($data['name']) || !isset($data['email']) || !isset($data['message'])){
+use kvinta\lib\Model;
+
+class Message extends Model
+{
+    public function save($data, $id = null)
+    {
+        if (!isset($data['name']) || !isset($data['email']) || !isset($data['message'])) {
             return false;
         }
 
@@ -12,14 +17,14 @@ class Message extends Model{
         $email = $this->db->escape($data['email']);
         $message = $this->db->escape($data['message']);
 
-        if(!$id){
+        if (!$id) {
             $sql = "
             insert into messages
                set name = '{$name}',
                    email = '{$email}',
                    message = '{$message}'
             ";
-        }else{
+        } else {
             $sql = "
             update messages
                set name = '{$name}',
@@ -32,7 +37,8 @@ class Message extends Model{
         return $this->db->query($sql);
     }
 
-    public function getList(){
+    public function getList()
+    {
         $sql = 'select * from messages where 1';
         return $this->db->query($sql);
     }
