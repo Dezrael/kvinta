@@ -1,0 +1,19 @@
+#service {
+	#service-type {
+		text-align: center;
+		font-size: 18px;
+	}
+	#service-component {
+		font-size: 16px;
+		img {
+			margin: 20px 0;
+		}
+		padding: 20px;
+
+		#fields{
+			.field {
+				margin: 20px 0;
+			}
+		}
+	}
+}
