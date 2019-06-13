@@ -5,13 +5,14 @@ var app = new Vue({
 		serviceTypes: componentsList
 	},
 	template: `
-	<div>
+	<div id="service">
 	<div id="service-type">
-        <h4>Выберите тип услуги</h4>
+        <h3>Выберите тип услуги</h3>
         <select name="service-type" v-model="currentType">
             <option v-for="(value,key) of serviceTypes" :value="key">{{value.serviceType}}</option>
         </select>
     </div>
+    <hr>
     <component :is="currentType"></component>
     </div>
     `
