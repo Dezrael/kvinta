@@ -1,7 +1,6 @@
 var ComponentSimpleService = {
 	data: function() {
 		return {
-			mrot: 11280,
 			result: 'Результат'
 		}
 	},
@@ -10,8 +9,8 @@ var ComponentSimpleService = {
 		<div class="description" v-html="description"></div><hr>
 		<div id="fields">
 			<div class="field" v-for="field of fields">
-				<p>{{field.text}}</p>
-				<input type="number" v-model="field.value">
+				<p class="field-text">{{field.text}}</p>
+				<input class="field-input" type="number" v-model="field.value" min=0>
 			</div>
 		</div>
 		<button id="calc_result" @click="formula()">Рассчитать</button>
@@ -47,10 +46,9 @@ var ComponentSickList = {
 	methods: {
 		formula: function() {
 			var medium_income = this.fields.income.value / 730;
-			medium_income = Math.max(this.mrot * 24 / 730, medium_income);
+			medium_income = Math.max(11280 * 24 / 730, medium_income);
 			var day_soc = medium_income * (this.fields.exp < 10 ? 0.3 : 0.5);
 			this.result = Math.round(day_soc * this.fields.days.value * 100)/100;
-			console.log(this.lol);
 		}
 	}
 }
@@ -73,8 +71,8 @@ var ComponentChildCare = {
 	},
 	methods: {
 		formula: function() {
-			if(this.fields.income.value * 30 < this.mrot)
-				this.result = Math.round(this.mrot * 0.4 * 100) / 100;
+			if(this.fields.income.value * 30 < 11280)
+				this.result = Math.round(11280 * 0.4 * 100) / 100;
 			else
 				this.result = Math.round(this.fields.income.value * 30.4 * 0.4 * 100) / 100;
 		}
