@@ -1,8 +1,9 @@
 {% extends 'default.twig' %}
 
 {% block content %}
+<script src="https://api-maps.yandex.ru/2.1/?apikey=80ce00c8-f3a8-4308-b828-996b330a9e42&lang=ru_RU" type="text/javascript"></script>
 
-<script src="/js/components.js"></script>
+
 <div id="carousel-homepage" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
@@ -39,10 +40,9 @@
         <span class="fa fa-angle-right"></span>
     </a>
 </div>
-
-<div class="box box-default">
-    <div id="calculator"></div>
-</div>
+<div id="map-service"></div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/map-vue.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/regions.js"></script>
 {% endblock %}
