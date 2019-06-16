@@ -29,12 +29,20 @@ class Region extends Model
         $name = $this->db->escape($data['name']);
         $code = $this->db->escape($data['code']);
         $ddata = $this->db->escape($data['data']);
+        $city = $this->db->escape($data['city']);
+        $population = (int)$data['population'];
+        $density = (float)$data['density'];
+        $area = (int)$data['area'];
 
         if (!$id) {
             $sql = "
             insert into regions
                set Name = '{$name}',
                    Code = '{$code}',
+                   city = '{$city}',
+                   population = {$population},
+                   density = {$density},
+                   area = {$area},
                    Data = '{$ddata}'
             ";
         } else {
@@ -42,6 +50,10 @@ class Region extends Model
             update regions
                set Name = '{$name}',
                    Code = '{$code}',
+                   city = '{$city}',
+                   population = {$population},
+                   density = {$density},
+                   area = {$area},
                    Data = '{$ddata}'
              where id = {$id}
             ";
