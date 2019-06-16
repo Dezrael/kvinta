@@ -2,7 +2,7 @@
 
 use kvinta\lib\Config;
 
-Config::set('site_name', 'Site name');
+Config::set('site_name', 'GeoScience');
 Config::set('languages', ['en', 'ru']);
 Config::set('routes', [
     'default' => '',
