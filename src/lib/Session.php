@@ -18,8 +18,9 @@ class Session
 
     public static function flash()
     {
+        $message = self::$flash_message;
         self::$flash_message = null;
-        return self::$flash_message;
+        return $message;
     }
 
     public static function set($key, $value)

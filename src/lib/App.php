@@ -51,8 +51,14 @@ class App
         $controller_object = new $controller_class();
         if (method_exists($controller_object, $controller_method)) {
             $view_path = $controller_object->$controller_method();
-            $view_object = new View($controller_object->getData(), $view_path);
-            echo $content = $view_object->render();
+            $data = $controller_object->getData();
+
+            if (is_string($data)) {
+                echo $data;
+            } else {
+                $view_object = new View($controller_object->getData(), $view_path);
+                echo $content = $view_object->render();
+            }
         } else {
             throw new \Exception('Method ' . $controller_method . ' of class ' . $controller_class . ' does not exists');
         }

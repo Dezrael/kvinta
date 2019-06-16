@@ -3,57 +3,49 @@
 namespace kvinta\controllers;
 
 use kvinta\lib\Controller;
-use kvinta\lib\App;
 use kvinta\lib\Session;
 use kvinta\lib\Router;
-use kvinta\models\Page;
+use kvinta\models\Region;
 
-class PagesController extends Controller
+class RegionsController extends Controller
 {
     public function __construct(array $data = array())
     {
         parent::__construct($data);
-        $this->model = new Page();
-    }
-
-    public function index()
-    {
-        $this->data['pages'] = $this->model->getList();
-    }
-
-    public function view()
-    {
-        $params = App::getRouter()->getParams();
-
-        if (isset($params[0])) {
-            $alias = strtolower($params[0]);
-            $this->data['page'] = $this->model->getByAlias($alias);
-        }
+        $this->model = new Region();
     }
 
     public function admin_index()
     {
-        $this->data['pages'] = $this->model->getList();
+        $this->data['regions'] = $this->model->getList();
+    }
+
+    public function admin_list()
+    {
+        $data = $this->model->getList();
+        $data = array_combine(array_column($data, 'code'), $data);
+
+        $this->data = json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
     }
 
     public function admin_edit()
     {
-
         if ($_POST) {
             $id = isset($_POST['id']) ? $_POST['id'] : null;
             $result = $this->model->save($_POST, $id);
             if ($result) {
-                Session::setFlash('Page was saved');
+                Session::setFlash('Region was saved');
             } else {
                 Session::setFlash('Error');
             }
+            Router::redirect('/admin/regions/');
         }
 
         if (isset($this->params[0])) {
-            $this->data['page'] = $this->model->getById($this->params[0]);
+            $this->data['region'] = $this->model->getById($this->params[0]);
         } else {
-            Session::setFlash('Wrong page id');
-            Router::redirect('/admin/pages/');
+            Session::setFlash('Wrong region id');
+            Router::redirect('/admin/regions/');
         }
     }
 
@@ -62,11 +54,11 @@ class PagesController extends Controller
         if ($_POST) {
             $result = $this->model->save($_POST);
             if ($result) {
-                Session::setFlash('Page was saved');
+                Session::setFlash('Region was saved');
             } else {
                 Session::setFlash('Error');
             }
-            Router::redirect('/admin/pages');
+            Router::redirect('/admin/regions');
         }
     }
 
@@ -75,11 +67,11 @@ class PagesController extends Controller
         if (isset($this->params[0])) {
             $result = $this->model->delete($this->params[0]);
             if ($result) {
-                Session::setFlash('Page was deleted');
+                Session::setFlash('Region was deleted');
             } else {
                 Session::setFlash('Error');
             }
         }
-        Router::redirect('/admin/pages');
+        Router::redirect('/admin/regions');
     }
 }
