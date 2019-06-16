@@ -12,6 +12,10 @@
     <tr>
         <th>Name</th>
         <th>Code</th>
+        <th>City</th>
+        <th>Population</th>
+        <th>Dencity</th>
+        <th>Area</th>
         <th>Data</th>
         <th>Actions</th>
     </tr>
@@ -19,6 +23,10 @@
     <tr>
         <td>{{ region.name }}</td>
         <td>{{ region.code }}</td>
+        <td>{{ region.city }}</td>
+        <td>{{ region.population }}</td>
+        <td>{{ region.density }}</td>
+        <td>{{ region.area }}</td>
         <td>{{ region.data }}</td>
         <td align="left">
             <a href="/admin/regions/edit/{{ region.id }}"><button class="btn btn-sm btn-primary">edit</button></a>
