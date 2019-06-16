@@ -1,3 +1,16 @@
+var jsonData;
+
+jQuery.ajax({
+    url: "/admin/list",
+    type: "GET",
+    contentType: 'application/json; charset=utf-8',
+    success: function(resultData) {
+        console.log(resultData);
+    }
+});
+
+
+
 var regionData = {
     "RU-BA": {"population": 4063293, "percent": 2.77},
     "RU-TA": {"population": 3894284, "percent": 2.65},
