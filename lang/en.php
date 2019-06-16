@@ -18,4 +18,6 @@ return [
     'Messages' => 'Messages',
     'Logout' => 'Logout',
     'Language' => 'Language',
+    'SignIn' => 'Sign in',
+    'Regions' => 'Regions',
 ];
