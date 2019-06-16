@@ -1,17 +1,26 @@
 {% extends 'admin.twig' %}
 
 {% block content %}
-<h3>Regions</h3>
+    <br/><br/><br/>
+<h3>{{ lang.Regions }}</h3>
+    <br/>
 <div>
     <a href="/admin/regions/add/"><button class="btn btn-sm btn-success">New</button></a>
 </div>
-<table class="table table-striped" style="width: 400px">
+    <br/>
+<table class="table table-striped" style="width: 100%;">
+    <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Data</th>
+        <th>Actions</th>
+    </tr>
     {% for region in regions %}
     <tr>
         <td>{{ region.name }}</td>
         <td>{{ region.code }}</td>
         <td>{{ region.data }}</td>
-        <td align="right">
+        <td align="left">
             <a href="/admin/regions/edit/{{ region.id }}"><button class="btn btn-sm btn-primary">edit</button></a>
             <a href="/admin/regions/delete/{{ region.id }}"><button class="btn btn-sm btn-warning">delete</button></a>
         </td>

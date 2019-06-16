@@ -18,4 +18,6 @@ return [
     'Messages' => 'Сообщения',
     'Logout' => 'Выход',
     'Language' => 'Язык',
+    'SignIn' => 'Вход',
+    'Regions' => 'Регионы',
 ];
