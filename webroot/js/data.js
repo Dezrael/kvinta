@@ -1,7 +1,7 @@
 var jsonData;
 
 jQuery.ajax({
-    url: "/admin/list",
+    url: "/regions/list",
     type: "GET",
     contentType: 'application/json; charset=utf-8',
     success: function(resultData) {
