@@ -9,13 +9,16 @@
 }
 
 #map-service #map-description {
+	margin: 0;
 	float: left;
-    width: 50%;
+	height: 450px;
+    width: 35%;
     padding: 2%;
 }
 
-#map {
+#map-service #map {
+	float: left;
 	height: 450px;
     width: 60%;
-    margin: 2% 5%;
+    margin: 2% 2.5%;
 }

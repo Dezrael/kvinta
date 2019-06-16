@@ -55,7 +55,13 @@ var regionData = {
     "RU-PNZ": {"population": 1331655, "percent": 0.91},
     "RU-PER": {"population": 2623122, "percent": 1.79},
     "RU-PRI": {"population": 1913037, "percent": 1.3},
-    "RU-PSK": {"population": 636546, "percent": 0.43},
+    "RU-PSK": {
+        "population": 636546,
+        id: "4",
+        name: "Псковская область333",
+        code: "RU_PSK",
+        data: {"url": "some additional url"}
+    },
     "RU-AL": {"population": 218063, "percent": 0.15},
     "RU-KR": {"population": 622484, "percent": 0.42},
     "RU-KO": {"population": 840873, "percent": 0.57},

@@ -19,8 +19,8 @@ function init() {
             var iso = feature.properties.iso3166;
             feature.id = iso;
             districtCollections[iso] = new ymaps.GeoObjectCollection(null, {
-                strokeOpacity: 0.3,
-                fillOpacity: 0.3,
+                strokeOpacity: 0.1,
+                fillOpacity: 0.1,
                 hintCloseTimeout: 0,
                 hintOpenTimeout: 0
             });
@@ -30,30 +30,24 @@ function init() {
         var highlightedDistrict;
         for (var districtName in districtCollections) {
             map.geoObjects.add(districtCollections[districtName]);
-            // При наведении курсора мыши будем выделять федеральный округ.
             districtCollections[districtName].events.add('mouseenter', function (event) {
                 var district = event.get('target').getParent();
-                district.options.set({fillOpacity: 1});
+                district.options.set({fillOpacity: 0.3});
             });
-            // При выводе курсора за пределы объекта вернем опции по умолчанию.
             districtCollections[districtName].events.add('mouseleave', function (event) {
                 var district = event.get('target').getParent();
                 if (district !== highlightedDistrict) {
-                    district.options.set({fillOpacity: 0.3});
+                    district.options.set({fillOpacity: 0.1});
                 }
             });
-            // Подпишемся на событие клика.
             districtCollections[districtName].events.add('click', function (event) {
                 var target = event.get('target');
                 var district = target.getParent();
-                map_app.$data.number = district.description.population;
-                // Если на карте выделен федеральный округ, то мы снимаем с него выделение.
+                map_app.$data.number = district.description.data.url;
                 if (highlightedDistrict) {
-                    highlightedDistrict.options.set({fillOpacity: 0.3})
+                    highlightedDistrict.options.set({fillOpacity: 0.1})
                 }
-                // Выделим федеральный округ.
-                district.options.set({fillOpacity: 1});
-                // Сохраним ссылку на выделенный федеральный округ.
+                district.options.set({fillOpacity: 0.3});
                 highlightedDistrict = district;
             });
         }

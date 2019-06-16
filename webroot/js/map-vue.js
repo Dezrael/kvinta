@@ -1,6 +1,6 @@
 var map_app = new Vue ({
 	data: {
-		number: '',
+		number: 'Информация о регионе',
 	},
 	template: `<div id="map-service" class="box box-default clearfix">
     	<div id="map"></div>
