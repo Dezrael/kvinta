@@ -20,7 +20,7 @@ class RegionsController extends Controller
         $this->data['regions'] = $this->model->getList();
     }
 
-    public function admin_list()
+    public function list()
     {
         $data = $this->model->getList();
         $data = array_combine(array_column($data, 'code'), $data);
