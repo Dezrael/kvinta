@@ -48,6 +48,7 @@ function init() {
                 map_app.$data.population = district.description.population;
                 map_app.$data.density = district.description.density;
                 map_app.$data.area = district.description.area;
+                map_app.$data.code = district.description.code;
                 map_app.$data.description = district.description.data;
                 if (highlightedDistrict) {
                     highlightedDistrict.options.set({fillOpacity: 0.1})
