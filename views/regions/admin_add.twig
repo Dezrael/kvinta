@@ -4,33 +4,33 @@
     <br/><br/><br/>
 <h3>{{ lang.AddingRegion }}</h3><br/>
 <form method="post" action="">
-    <div class="form-group">
-        <label for="name">{{ lang.RegionName }}</label>
-        <input type="text" id="name" name="name" required />
+    <div class="form-group row">
+        <label for="name" class="col-sm-2">{{ lang.RegionName }}</label>
+        <input type="text" class="col-sm-10" id="name" name="name" required />
     </div>
-    <div class="form-group">
-        <label for="code">{{ lang.Code }}</label>
-        <input type="text" id="code" name="code" required/>
+    <div class="form-group row">
+        <label for="code" class="col-sm-2">{{ lang.Code }}</label>
+        <input type="text" class="col-sm-10" id="code" name="code" required/>
     </div>
-    <div class="form-group">
-        <label for="city">{{ lang.City }}</label>
-        <input type="text" id="city" name="city" />
+    <div class="form-group row">
+        <label for="city" class="col-sm-2">{{ lang.City }}</label>
+        <input type="text" class="col-sm-10" id="city" name="city" />
     </div>
-    <div class="form-group">
-        <label for="population">{{ lang.Population }}</label>
-        <input type="number" id="population" name="population" />
+    <div class="form-group row">
+        <label for="population" class="col-sm-2">{{ lang.Population }}</label>
+        <input type="number" class="col-sm-10" id="population" name="population" />
     </div>
-    <div class="form-group">
-        <label for="density">{{ lang.Dencity }}</label>
-        <input type="text" id="density" name="density" />
+    <div class="form-group row">
+        <label for="density" class="col-sm-2">{{ lang.Dencity }}</label>
+        <input type="text" class="col-sm-10" id="density" name="density" />
     </div>
-    <div class="form-group">
-        <label for="area">{{ lang.Area }}</label>
-        <input type="number" id="area" name="area" />
+    <div class="form-group row">
+        <label for="area" class="col-sm-2">{{ lang.Area }}</label>
+        <input type="number" class="col-sm-10" id="area" name="area" />
     </div>
-    <div class="form-group">
-        <label for="data">{{ lang.Data }}</label>
-        <textarea name="data" id="data" class="form-control" required></textarea>
+    <div class="form-group row">
+        <label for="data" class="col-sm-2">{{ lang.Data }}</label>
+        <textarea name="data" class="col-sm-10" id="data" class="form-control" required></textarea>
     </div>
     <input type="submit" class="btn btn-success" value="{{ lang.Add }}">
 </form>
