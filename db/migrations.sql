@@ -28,4 +28,5 @@ CREATE TABLE users
     is_active TINYINT(1) unsigned DEFAULT '1' NOT NULL
 );
 
+-- admin login: root 123
 INSERT INTO users(login, email, role, password, is_active) VALUES ('root', 'kvinta@admin.com', 'admin', 'f65c7d0a654c3e120fc3c600a791c621', 1);

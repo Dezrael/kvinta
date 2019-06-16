@@ -34,6 +34,6 @@ class UsersController extends Controller
     public function admin_logout()
     {
         Session::destroy();
-        Router::redirect(App::getRoot() . '/admin/');
+        Router::redirect(App::getRoot());
     }
 }

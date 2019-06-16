@@ -5,19 +5,19 @@
 <h3>{{ lang.Regions }}</h3>
     <br/>
 <div>
-    <a href="/admin/regions/add/"><button class="btn btn-sm btn-success">New</button></a>
+    <a href="/admin/regions/add/"><button class="btn btn-sm btn-success">{{ lang.Add }}</button></a>
 </div>
     <br/>
 <table class="table table-striped" style="width: 100%;">
     <tr>
-        <th>Name</th>
-        <th>Code</th>
-        <th>City</th>
-        <th>Population</th>
-        <th>Dencity</th>
-        <th>Area</th>
-        <th>Data</th>
-        <th>Actions</th>
+        <th>{{ lang.RegionName }}</th>
+        <th>{{ lang.Code }}</th>
+        <th>{{ lang.City }}</th>
+        <th>{{ lang.Population }}</th>
+        <th>{{ lang.Dencity }}</th>
+        <th>{{ lang.Area }}</th>
+        <th>{{ lang.Data }}</th>
+        <th>{{ lang.Action }}</th>
     </tr>
     {% for region in regions %}
     <tr>
@@ -29,8 +29,8 @@
         <td>{{ region.area }}</td>
         <td>{{ region.data }}</td>
         <td align="left">
-            <a href="/admin/regions/edit/{{ region.id }}"><button class="btn btn-sm btn-primary">edit</button></a>
-            <a href="/admin/regions/delete/{{ region.id }}"><button class="btn btn-sm btn-warning">delete</button></a>
+            <a href="/admin/regions/edit/{{ region.id }}"><button class="btn btn-sm btn-primary">{{ lang.Edit }}</button></a>
+            <a href="/admin/regions/delete/{{ region.id }}"><button class="btn btn-sm btn-warning">{{ lang.Delete }}</button></a>
         </td>
     </tr>
     {% endfor %}
