@@ -43,7 +43,12 @@ function init() {
             districtCollections[districtName].events.add('click', function (event) {
                 var target = event.get('target');
                 var district = target.getParent();
-                map_app.$data.number = "Численность: " + district.description.population;
+                map_app.$data.name = district.description.name;
+                map_app.$data.center = district.description.city;
+                map_app.$data.population = district.description.population;
+                map_app.$data.density = district.description.density;
+                map_app.$data.area = district.description.area;
+                map_app.$data.description = district.description.data;
                 if (highlightedDistrict) {
                     highlightedDistrict.options.set({fillOpacity: 0.1})
                 }
